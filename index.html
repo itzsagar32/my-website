@@ -1,23 +1,16 @@
-<!DOCTYPE html>
-<html>
-<body>
-<pre id="out">testing...</pre>
+<h1>Cloudsmith Credential Test</h1>
 
 <script>
-fetch("https://api.cloudsmith.io/v1/user/self/", {
+fetch("https://api.cloudsmith.io/v1/repos/", {
     credentials: "include"
 })
 .then(async r => {
-    const text = await r.text();
+    let text = await r.text();
 
-    document.getElementById("out").innerText =
-        "STATUS: " + r.status +
-        "\n\nBODY:\n" + text;
+    document.body.innerHTML +=
+        "<pre>Status: " + r.status + "\n\n" + text + "</pre>";
 })
 .catch(e => {
-    document.getElementById("out").innerText =
-        "ERROR:\n" + e;
+    document.body.innerHTML += "<pre>" + e + "</pre>";
 });
 </script>
-</body>
-</html>
