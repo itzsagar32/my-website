@@ -1,16 +1,22 @@
+<!DOCTYPE html>
 <html>
 <body>
+<h1>Cloudsmith CORS Test</h1>
+
+<pre id="out"></pre>
+
 <script>
-fetch("https://api.cloudsmith.io/user/self/", {
+fetch("https://api.cloudsmith.io/v1/user/self/", {
     credentials: "include"
 })
 .then(r => r.text())
 .then(t => {
-    document.body.innerHTML = "<pre>" + t + "</pre>";
+    document.getElementById("out").innerText = t;
 })
 .catch(e => {
-    document.body.innerHTML = e;
+    document.getElementById("out").innerText = e;
 });
 </script>
+
 </body>
 </html>
